@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "primeicons/primeicons.css";
 
 .p-sortable-column-icon {
   width: 12px;
@@ -9,5 +8,17 @@
 }
 
 .button-custom {
-  @apply bg-[#90C3FA] mr-5 hover:mr-0 hover:bg-[#DFF1FE] text-black py-2 hover:rounded-none hover:rounded-l-xl rounded-xl duration-200;
+  @apply flex justify-center items-center gap-3 mr-5 hover:mr-0 tracking-widest hover:bg-[#F0F6FF] text-black py-2 hover:rounded-none hover:rounded-l-xl rounded-xl duration-200;
+}
+
+.button-csv {
+  @apply flex pt-1 flex-col text-[8px] gap-1 justify-center w-12 h-12 items-center rounded-full bg-blue-300 hover:bg-blue-400 duration-200 pb-1;
+}
+
+.button-xls {
+  @apply flex flex-col justify-center w-12 h-12 items-center text-[8px] gap-1 pt-1 rounded-full bg-green-300 hover:bg-green-400 duration-200 pb-1;
+}
+
+.button-pdf {
+  @apply flex flex-col justify-center w-12 h-12 items-center text-[8px] gap-1 pt-1 rounded-full bg-orange-300 hover:bg-orange-400 duration-200 pb-1;
 }

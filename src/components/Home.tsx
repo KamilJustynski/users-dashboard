@@ -11,6 +11,7 @@ import { Column } from "primereact/column";
 import { FilterMatchMode } from "primereact/api";
 import "primereact/resources/themes/lara-light-cyan/theme.css";
 import { Button } from "primereact/button";
+import { Docs } from "../img/Docs";
 
 export const Home = () => {
   const [filters, setFilters] = useState({
@@ -34,37 +35,40 @@ export const Home = () => {
   if (data) {
     const tableKeys = Object.keys(data[0]);
     return (
-      <div className="flex flex-col bg-sky-100 w-full px-10 ">
+      <div className="flex flex-col bg-[#F0F6FF] w-full px-10 ">
         <div className="flex py-2 justify-between">
           <div className="flex m-3 ml-0 gap-3">
             <p className="flex justify-center items-center text-md">
               Export file:
             </p>
             <Button
-              className="flex pt-1 flex-col text-[8px] gap-1 justify-center w-12 h-12 items-center rounded-full bg-blue-300 hover:bg-blue-400 duration-200"
+              className="button-csv"
               type="button"
               icon="pi pi-file"
               data-pr-tooltip="CSV"
             >
+              <Docs />
               CSV
             </Button>
             <Button
-              className="flex flex-col justify-center w-12 h-12 items-center text-[8px] gap-1 pt-1 rounded-full bg-green-300 hover:bg-green-400 duration-200"
+              className="button-xls"
               type="button"
               icon="pi pi-file-excel"
               severity="success"
               data-pr-tooltip="XLS"
             >
+              <Docs />
               XLS
             </Button>
 
             <Button
-              className="flex flex-col justify-center w-12 h-12 items-center text-[8px] gap-1 pt-1 rounded-full bg-orange-300 hover:bg-orange-400 duration-200"
+              className="button-pdf"
               type="button"
               icon="pi pi-file-pdf"
               severity="warning"
               data-pr-tooltip="PDF"
             >
+              <Docs />
               PDF
             </Button>
           </div>
@@ -81,7 +85,7 @@ export const Home = () => {
             }
           />
         </div>
-        <div className="bg-sky-100 py-2 w-full">
+        <div className=" py-2 w-full">
           <DataTable
             tableStyle={{ minWidth: "50rem" }}
             scrollable
@@ -89,7 +93,7 @@ export const Home = () => {
             scrollHeight="700px"
             editMode="cell"
             filters={filters}
-            className="text-xs h-full"
+            className="text-xs h-full custom-row"
             removableSort
             paginator
             rows={20}
