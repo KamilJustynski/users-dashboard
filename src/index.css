@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "primeicons/primeicons.css";
+
+.p-sortable-column-icon {
+  width: 12px;
+  height: 12px;
+}
+
+.button-custom {
+  @apply bg-[#90C3FA] mr-5 hover:mr-0 hover:bg-[#DFF1FE] text-black py-2 hover:rounded-none hover:rounded-l-xl rounded-xl duration-200;
+}

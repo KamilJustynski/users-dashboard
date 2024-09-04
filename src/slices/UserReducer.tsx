@@ -31,7 +31,7 @@ interface Users {
 }
 
 interface UserState {
-  data: Users | null;
+  data: Users[] | null;
   loading: boolean;
   error: string | null;
 }
@@ -50,7 +50,7 @@ const userSlice = createSlice({
       state.loading = true;
       state.error = null;
     },
-    fetchUsersSuccess: (state, action: PayloadAction<Users>) => {
+    fetchUsersSuccess: (state, action: PayloadAction<Users[]>) => {
       state.loading = false;
       state.data = action.payload;
     },
