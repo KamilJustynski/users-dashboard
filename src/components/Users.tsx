@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectData, selectLoading, selectError } from "../slices/UserReducer";
 import { RootState } from "../store";
 import { fetchUsersRequest } from "../slices/UserReducer";
-import { Loading } from "./Loading";
+import { Loading } from "../states/Loading";
 import { DataTable } from "primereact/datatable";
 import { InputText } from "primereact/inputtext";
 import { Column } from "primereact/column";
@@ -13,7 +13,7 @@ import "primereact/resources/themes/lara-light-cyan/theme.css";
 import { Button } from "primereact/button";
 import { Docs } from "../img/Docs";
 
-export const Home = () => {
+export const Users = () => {
   const [filters, setFilters] = useState({
     global: { value: "", matchMode: FilterMatchMode.CONTAINS },
   });
