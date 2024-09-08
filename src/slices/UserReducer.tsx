@@ -1,40 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-interface UsersGeo {
-  lat: string;
-  lng: string;
-}
-
-interface UsersAddress {
-  street: string;
-  suite: string;
-  city: string;
-  zipcode: string;
-  geo: UsersGeo;
-}
-
-interface UsersCompany {
-  name: string;
-  catchPhrase: string;
-  bs: string;
-}
-
-interface Users {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  address: UsersAddress;
-  phone: string;
-  website: string;
-  company: UsersCompany;
-}
-
-interface UserState {
-  data: Users[] | null;
-  loading: boolean;
-  error: string | null;
-}
+import { Users, UserState } from "../helpers/Interfaces";
 
 const initialState: UserState = {
   data: null,

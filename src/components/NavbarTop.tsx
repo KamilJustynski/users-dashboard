@@ -1,7 +1,6 @@
-import React from "react";
 import { Button } from "primereact/button";
 import logotype from "../img/Logotype.png";
-import { Logout } from "../img/logout";
+import { Logout } from "../svg/Logout";
 
 export const NavbarTop = () => {
   return (

@@ -6,7 +6,7 @@ import {
   fetchUsersFailure,
 } from "../slices/UserReducer";
 
-function* fetchUsersSaga() {
+function* fetchUsersSaga(): any {
   try {
     const response: Response = yield call(() =>
       fetch("https://jsonplaceholder.typicode.com/users")

@@ -1,4 +1,3 @@
-import React from "react";
 import { Users } from "./components/Users";
 import { NavbarTop } from "./components/NavbarTop";
 import { NavbarLeft } from "./components/NavbarLeft";
@@ -14,6 +13,7 @@ export const App = () => {
         <div className="flex">
           <NavbarLeft />
           <Routes>
+            <Route path="/" element={<Dashboard />} />
             <Route path="/users" element={<Users />} />
             <Route path="/dashboard" element={<Dashboard />} />
           </Routes>

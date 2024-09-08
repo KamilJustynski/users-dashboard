@@ -1,15 +1,14 @@
-import React from "react";
-import { Oval } from "react-loader-spinner";
+import { ThreeCircles } from "react-loader-spinner";
 
 export const Loading = () => {
   return (
-    <div className="w-screen h-screen flex justify-center items-center">
-      <Oval
+    <div className="w-screen h-screen pb-44 flex justify-center items-center">
+      <ThreeCircles
         visible={true}
-        height="80"
-        width="80"
+        height="100"
+        width="100"
         color="#3B82F6"
-        ariaLabel="oval-loading"
+        ariaLabel="three-circles-loading"
         wrapperStyle={{}}
         wrapperClass=""
       />

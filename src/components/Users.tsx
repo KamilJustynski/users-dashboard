@@ -1,5 +1,5 @@
 // UserComponent.tsx
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectData, selectLoading, selectError } from "../slices/UserReducer";
 import { RootState } from "../store";
@@ -11,12 +11,17 @@ import { Column } from "primereact/column";
 import { FilterMatchMode } from "primereact/api";
 import "primereact/resources/themes/lara-light-cyan/theme.css";
 import { Button } from "primereact/button";
-import { Docs } from "../img/Docs";
+import { Docs } from "../svg/Docs";
+import { ExportCSV } from "../helpers/ExportCSV";
+import { ExportExcelFile } from "../helpers/ExportExcel";
+import { ExportPdf } from "../helpers/ExportPDF";
+import { Error } from "../states/Error";
 
 export const Users = () => {
   const [filters, setFilters] = useState({
     global: { value: "", matchMode: FilterMatchMode.CONTAINS },
   });
+  const dt = useRef(null);
   const dispatch = useDispatch();
   const data = useSelector((state: RootState) => selectData(state));
   const loading = useSelector((state: RootState) => selectLoading(state));
@@ -26,11 +31,9 @@ export const Users = () => {
     dispatch(fetchUsersRequest());
   }, [dispatch]);
 
-  console.log(data);
-
   if (loading) return <Loading />;
 
-  if (error) return <p>ERROR</p>;
+  if (error) return <Error />;
 
   if (data) {
     const tableKeys = Object.keys(data[0]);
@@ -46,6 +49,7 @@ export const Users = () => {
               type="button"
               icon="pi pi-file"
               data-pr-tooltip="CSV"
+              onClick={() => ExportCSV(false, dt)}
             >
               <Docs />
               CSV
@@ -56,6 +60,11 @@ export const Users = () => {
               icon="pi pi-file-excel"
               severity="success"
               data-pr-tooltip="XLS"
+              onClick={() =>
+                ExportExcelFile(
+                  data.slice(1, 6).filter((_, index) => index !== 3)
+                )
+              }
             >
               <Docs />
               XLS
@@ -67,6 +76,7 @@ export const Users = () => {
               icon="pi pi-file-pdf"
               severity="warning"
               data-pr-tooltip="PDF"
+              onClick={() => ExportPdf(data)}
             >
               <Docs />
               PDF
@@ -99,6 +109,7 @@ export const Users = () => {
             rows={20}
             totalRecords={6}
             stripedRows
+            ref={dt}
           >
             {tableKeys
               .slice(1, 6)
