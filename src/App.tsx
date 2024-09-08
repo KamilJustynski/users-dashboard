@@ -1,11 +1,11 @@
 import { Users } from "./components/Users";
 import { NavbarTop } from "./components/NavbarTop";
 import { NavbarLeft } from "./components/NavbarLeft";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 import { Dashboard } from "./components/Dashboard";
 export const App = () => {
   return (
-    <BrowserRouter basename="/users-dashboard">
+    <HashRouter>
       <div className="flex flex-col">
         <div className="w-screen h-[100px] z-10">
           <NavbarTop />
@@ -19,6 +19,6 @@ export const App = () => {
           </Routes>
         </div>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
