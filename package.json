@@ -1,7 +1,7 @@
 {
   "name": "dashboard",
   "private": true,
-  "homepage": "https://KamilJustynski/users-dashboard/",
+  "homepage": "https://kamiljustynski.github.io/users-dashboard/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
