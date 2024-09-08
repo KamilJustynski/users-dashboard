@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Dashboard } from "./components/Dashboard";
 export const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/users-dashboard">
       <div className="flex flex-col">
         <div className="w-screen h-[100px] z-10">
           <NavbarTop />

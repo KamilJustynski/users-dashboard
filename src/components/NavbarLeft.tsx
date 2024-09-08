@@ -1,15 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Dashboard } from "../svg/Dashboard";
 import { User } from "../svg/User";
 import { Link } from "react-router-dom";
 
 export const NavbarLeft = () => {
+  const location = useLocation();
   const height = `calc(100vh - 100px)`;
   const [activeButton, setActiveButton] = useState("");
 
-  const handleButtonClick = (buttonName: string) => {
-    setActiveButton(buttonName);
-  };
+  useEffect(() => {
+    const path = location.pathname;
+    if (path === "/dashboard" || path === "/") {
+      setActiveButton("dashboard");
+    } else if (path === "/users") {
+      setActiveButton("users");
+    }
+  }, [location.pathname]);
 
   return (
     <div
@@ -22,7 +29,6 @@ export const NavbarLeft = () => {
             ? "bg-[#F0F6FF] mr-0 rounded-none rounded-l-xl "
             : ""
         }`}
-        onClick={() => handleButtonClick("dashboard")}
         to="dashboard"
       >
         <Dashboard />
@@ -34,7 +40,6 @@ export const NavbarLeft = () => {
             ? "bg-[#F0F6FF] mr-0 rounded-none rounded-l-xl "
             : ""
         }`}
-        onClick={() => handleButtonClick("users")}
         to="users"
       >
         <User />
