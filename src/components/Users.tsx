@@ -84,7 +84,7 @@ export const Users = () => {
           </div>
           <InputText
             className="p-2 m-3 text-xs rounded-xl border w-60 mr-0"
-            placeholder="Szukaj..."
+            placeholder="Search..."
             onInput={(e: React.ChangeEvent<HTMLInputElement>) =>
               setFilters({
                 global: {
